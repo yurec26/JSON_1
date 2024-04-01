@@ -145,8 +145,8 @@ public class Main {
         Gson gson = new Gson();
         try {
             JSONArray array = (JSONArray) parser.parse(json);
-            for (int i = 0; i < array.size(); i++) {
-                Employee employee = gson.fromJson(String.valueOf(array.get(i)), Employee.class);
+            for (Object o : array) {
+                Employee employee = gson.fromJson(String.valueOf(o), Employee.class);
                 result.add(employee);
             }
         } catch (ParseException e) {
