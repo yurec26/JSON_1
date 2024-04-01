@@ -33,7 +33,7 @@ public class Main {
         // Задача 2
         List<Employee> list2 = parseXML("data.xml");
         String json2 = listToJson(list2);
-        writeString(json2,"C:/Users/Юрий/IdeaProjects/NetologyCSV_1/data2.json");
+        writeString(json2, "C:/Users/Юрий/IdeaProjects/NetologyCSV_1/data2.json");
         // Задача 3
         String json3 = readString("data.json");
         List<Employee> list3 = jsonToList(json3);
@@ -127,7 +127,7 @@ public class Main {
     }
 
     public static String readString(String path) {
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String s;
             while ((s = br.readLine()) != null) {
@@ -139,14 +139,14 @@ public class Main {
         return sb.toString();
     }
 
-    public static List<Employee> jsonToList(String json){
+    public static List<Employee> jsonToList(String json) {
         List<Employee> result = new ArrayList<>();
         JSONParser parser = new JSONParser();
         Gson gson = new Gson();
         try {
-           JSONArray array = (JSONArray) parser.parse(json);
+            JSONArray array = (JSONArray) parser.parse(json);
             for (int i = 0; i < array.size(); i++) {
-                Employee employee = gson.fromJson(String.valueOf(array.get(i)),Employee.class);
+                Employee employee = gson.fromJson(String.valueOf(array.get(i)), Employee.class);
                 result.add(employee);
             }
         } catch (ParseException e) {
